@@ -1,7 +1,7 @@
 #### 介绍
- **blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系统，一个是爬虫系统。**   
- **CMS系统采用 SpringBoot+Mybatis+Maven3+Shiro+Restful+Lucene+Bootstrap+Layui等技术栈**  
- **爬虫系统采用 HttpClient+Jsoup+Quartz+Log4j+Ehcache等技术栈** 
+ blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系统，一个是爬虫系统。  
+ CMS系统采用 SpringBoot+Mybatis+Maven3+Shiro+Restful+Lucene+Bootstrap+Layui等技术栈  
+ 爬虫系统采用 HttpClient+Jsoup+Quartz+Log4j+Ehcache等技术栈  
 
 #### 注意事项
 本项目作为教学使用，请勿商用
