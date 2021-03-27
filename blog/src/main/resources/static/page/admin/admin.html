@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>博客采集网 - 后台管理</title>
+    <link rel="stylesheet" href="../../layui-v2.5.5/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/admin/admin.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">
+            <img src="../../images/collection.png">
+            <span>&nbsp;博客采集网</span>
+        </div>
+        <ul class="layui-nav layui-layout-right welcome">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    欢迎您，<span id="currentUser"></span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd lay-unselect>
+                        <a href="javascript:;" onclick="updatePassword()">
+                            <i class="layui-icon layui-icon-password tool"></i>
+                            &nbsp;修改密码
+                        </a>
+                    </dd>
+                    <dd lay-unselect>
+                        <a href="javascript:;" onclick="logout()">
+                            <i class="layui-icon layui-icon-engine tool"></i>
+                            &nbsp;安全退出
+                        </a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">
+                        <i class="layui-icon layui-icon-align-left tool"></i>
+                        &nbsp;导航菜单
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:openTab('博客信息管理','blog.html','layui-icon-fonts-strong',1)">
+                                <i class="layui-icon layui-icon-fonts-strong tool"></i>
+                                &nbsp;博客信息管理
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:openTab('博客类别管理','blogType.html','layui-icon-template-1',2)">
+                                <i class="layui-icon layui-icon-template-1 tool"></i>
+                                &nbsp;博客类别管理
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:openTab('友情链接管理','link.html','layui-icon-link',3)">
+                                <i class="layui-icon layui-icon-link tool"></i>
+                                &nbsp;友情链接管理
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div class="mainPage">
+            <div class="layui-tab" lay-filter="tabs">
+                <ul class="layui-tab-title">
+                    <li class="layui-this" id="home" lay-id="0">
+                        <i class="layui-icon layui-icon-home home"></i>
+                        &nbsp;首页
+                    </li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-fluid-badge">
+                            <div class="layui-row layui-col-space15">
+                                <div class="layui-col-sm6 layui-col-md3">
+                                    <div class="layui-card">
+                                        <div class="layui-card-header">
+                                            已抓取博客
+                                            <span class="layui-badge layui-bg-blue layuiadmin-badge">总计</span>
+                                        </div>
+                                        <div class="layui-card-body layuiadmin-card-list">
+                                            <p class="layuiadmin-big-font">5,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm6 layui-col-md3">
+                                    <div class="layui-card">
+                                        <div class="layui-card-header">
+                                            已发布博客
+                                            <span class="layui-badge layui-bg-blue layuiadmin-badge">总计</span>
+                                        </div>
+                                        <div class="layui-card-body layuiadmin-card-list">
+                                            <p class="layuiadmin-big-font">5,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm6 layui-col-md3">
+                                    <div class="layui-card">
+                                        <div class="layui-card-header">
+                                            待发布博客
+                                            <span class="layui-badge layui-bg-blue layuiadmin-badge">总计</span>
+                                        </div>
+                                        <div class="layui-card-body layuiadmin-card-list">
+                                            <p class="layuiadmin-big-font">5,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm6 layui-col-md3">
+                                    <div class="layui-card">
+                                        <div class="layui-card-header">
+                                            博客类别
+                                            <span class="layui-badge layui-bg-blue layuiadmin-badge">总计</span>
+                                        </div>
+                                        <div class="layui-card-body layuiadmin-card-list">
+                                            <p class="layuiadmin-big-font">7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-sm12">
+                                    <div class="layui-card">
+                                        <div class="layui-card-header">
+                                            博客阅读量
+                                        </div>
+                                        <div class="layui-card-body">
+                                            <div class="layui-row">
+                                                <div class="layui-col-sm8">
+                                                    <div class="layui-carousel layadmin-carousel layadmin-dataview" data-anim="fade"
+                                                    lay-filter="LAY-index-pagetwo" lay-anim="fade" style="width: 100%;height: 280px">
+
+                                                    </div>
+                                                </div>
+                                                <div class="layui-col-sm4">
+                                                    <div class="layuiadmin-card-list">
+                                                        <p class="layuiadmin-normal-font">TOP1</p>
+                                                        <P>并发编程</P>
+                                                    </div>
+                                                    <div class="layuiadmin-card-list">
+                                                        <p class="layuiadmin-normal-font">TOP2</p>
+                                                        <P>并发编程</P>
+                                                    </div>
+                                                    <div class="layuiadmin-card-list">
+                                                        <p class="layuiadmin-normal-font">TOP3</p>
+                                                        <P>并发编程</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 密码修改弹出表单，默认隐藏 -->
+    <form class="layui-form layui-hide" id="passwordFrom">
+        <div class="layui-form-item">
+            <label class="layui-form-label">旧密码</label>
+            <div class="layui-input-block">
+                <input type="password" id="oldPassword" name="oldPassword" lay-verify="required|old"
+                       lay-reqtext="旧密码不能为空" autocomplete="off" placeholder="请输入旧密码" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">新密码</label>
+            <div class="layui-input-block">
+                <input type="password" id="newPassword" name="newPassword" lay-verify="required" lay-reqtext="新密码不能为空"
+                       placeholder="请输入新密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">确认新密码</label>
+            <div class="layui-input-block">
+                <input type="password" id="confirmNewPassword" name="confirmNewPassword" lay-verify="required|pass"
+                       lay-reqtext="新密码不能为空" placeholder="请再次输入新密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn layui-btn-normal" lay-submit="" lay-filter="submitUpdate">提交
+                </button>
+                <button type="button" id="cancelUpdate" class="layui-btn layui-btn-primary">取消</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="../../layui-v2.5.5/layui/layui.js"></script>
+<script src="../../js/admin/admin.js"></script>
+</body>
+</html>

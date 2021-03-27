@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 继承自SpringBoot -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.bonc.crawler</groupId>
+    <artifactId>blog-crawler</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>crawler</module>
+        <module>blog</module>
+    </modules>
+
+    <!-- 设置项目属性、依赖版本控制、插件版本控制 -->
+    <properties>
+        <!-- 设置项目属性 -->
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <dependency.project.build.sourceEncoding>UTF-8</dependency.project.build.sourceEncoding>
+        <!-- 打包时跳过test环节 -->
+        <skipTests>true</skipTests>
+        <!-- 依赖版本控制 -->
+        <dependency.mysql.version>5.1.8</dependency.mysql.version>
+        <dependency.httpclient.version>4.5.10</dependency.httpclient.version>
+        <dependency.commons.io.version>2.6</dependency.commons.io.version>
+        <dependency.commons.lang.version>3.4</dependency.commons.lang.version>
+        <dependency.jsoup.version>1.12.1</dependency.jsoup.version>
+        <dependency.ehcache.version>2.10.6</dependency.ehcache.version>
+        <dependency.quartz.version>2.2.1</dependency.quartz.version>
+        <dependency.druid.version>1.1.10</dependency.druid.version>
+        <dependency.mybatis.version>2.0.1</dependency.mybatis.version>
+        <dependency.springboot.cache.version>5.1.7.RELEASE</dependency.springboot.cache.version>
+        <dependency.emoji.version>0.1.1</dependency.emoji.version>
+        <dependency.shiro.version>1.4.1</dependency.shiro.version>
+    </properties>
+
+    <!-- 依赖管理器 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 引入MySql依赖-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${dependency.mysql.version}</version>
+            </dependency>
+            <!-- 引入httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${dependency.httpclient.version}</version>
+            </dependency>
+            <!-- 引入IO工具类 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${dependency.commons.io.version}</version>
+            </dependency>
+            <!-- 引入apache的commons依赖 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${dependency.commons.lang.version}</version>
+            </dependency>
+            <!-- 引入jsoup依赖 -->
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${dependency.jsoup.version}</version>
+            </dependency>
+            <!-- 引入springboot缓存依赖 -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${dependency.springboot.cache.version}</version>
+            </dependency>
+            <!-- 引入ehcache依赖 -->
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${dependency.ehcache.version}</version>
+            </dependency>
+            <!-- 引入quartz任务调度依赖 -->
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${dependency.quartz.version}</version>
+            </dependency>
+            <!-- 引入druid连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${dependency.druid.version}</version>
+            </dependency>
+            <!-- 引入Mybatis依赖 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${dependency.mybatis.version}</version>
+            </dependency>
+            <!-- 引入转义工具依赖 -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>java-emoji-converter</artifactId>
+                <version>${dependency.emoji.version}</version>
+            </dependency>
+            <!-- 引入shiro -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${dependency.shiro.version}</version>
+            </dependency>
+            <!-- 引入shiro和springboot的整合 -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${dependency.shiro.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bonc.blog.dao.BlogMapper">
+
+    <resultMap id="BaseResultMap" type="com.bonc.blog.entity.Blog">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="summary" jdbcType="VARCHAR" property="summary"/>
+        <result column="crawler_date" jdbcType="TIMESTAMP" property="crawlerDate"/>
+        <result column="click_hit" jdbcType="INTEGER" property="clickHit"/>
+        <result column="type_id" jdbcType="INTEGER" property="typeId"/>
+        <result column="tags" jdbcType="VARCHAR" property="tags"/>
+        <result column="or_url" jdbcType="VARCHAR" property="orUrl"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="release_date" jdbcType="TIMESTAMP" property="releaseDate"/>
+    </resultMap>
+
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bonc.blog.entity.Blog">
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, title, crawler_date, type_id, tags, or_url, state, content, type_id, tags,summary,release_date,click_hit
+  </sql>
+
+    <select id="listBlogCountByTypeId" parameterType="int" resultType="int">
+    select
+      count(*)
+    from
+      t_blog
+    where
+      type_id = #{typeId}
+  </select>
+
+    <select id="listBlog" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"></include>
+        from
+        t_blog
+        <where>
+            <if test="title!=null and title!=''">
+                title like concat('%',#{title},'%')
+            </if>
+        </where>
+        order by crawler_date desc
+        limit #{begin},#{size}
+    </select>
+
+    <select id="listBlogCount" parameterType="map" resultType="integer">
+        select
+        count(*)
+        from
+        t_blog
+        <where>
+            <if test="title!=null and title!=''">
+                title like concat('%',#{title},'%')
+            </if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="com.bonc.blog.entity.Blog">
+        update
+        t_blog
+        set
+        title = #{title},
+        type_id = #{typeId},
+        or_url = #{orUrl},
+        crawler_date = #{crawlerDate},
+        tags = #{tags},
+        content = #{content},
+        summary = #{summary}
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <update id="updateState" parameterType="com.bonc.blog.entity.Blog">
+    update
+      t_blog
+    set
+      state = #{state},
+      release_date = #{releaseDate}
+    where
+      id = #{id}
+  </update>
+
+    <delete id="delete" parameterType="int">
+    delete from
+      t_blog
+    where
+      id = #{id}
+  </delete>
+
+    <select id="indexListBlog" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"></include>
+        from
+        t_blog
+        <where>
+            state = 1
+            <if test="typeId!=null and typeId!=''">
+                and type_id = #{typeId}
+            </if>
+        </where>
+        order by release_date desc
+        limit #{begin},#{size}
+    </select>
+
+    <select id="indexListBlogCount" parameterType="map" resultType="integer">
+        select
+        count(*)
+        from
+        t_blog
+        <where>
+            state = 1
+            <if test="typeId!=null and typeId!=''">
+                and type_id = #{typeId}
+            </if>
+        </where>
+    </select>
+
+    <select id="listHotBlog" resultMap="BaseResultMap">
+    select
+      id,
+      title
+    from
+      t_blog
+    where
+      state=1
+    order by
+      click_hit desc
+    limit 10
+  </select>
+
+    <select id="findById" parameterType="int" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"></include>
+        from
+        t_blog
+        where
+        id = #{id}
+    </select>
+
+    <select id="findPreBlog" parameterType="date" resultMap="BaseResultMap">
+    select
+      id,
+      title
+    from
+      t_blog
+    where
+      release_date &lt; #{releaseDate}
+    and
+      state = 1
+    order by
+      release_date desc
+    limit 1
+  </select>
+
+    <select id="findNextBlog" parameterType="date" resultMap="BaseResultMap">
+    SELECT
+      id,
+      title
+    FROM
+      t_blog
+    WHERE
+      release_date &gt; #{releaseDate}
+    and
+      state = 1
+    ORDER BY
+      release_date asc
+    LIMIT 1
+  </select>
+
+    <update id="updateClickHit" parameterType="int">
+    update
+      t_blog
+    set
+      click_hit = click_hit+1
+    where
+      id = #{id}
+  </update>
+</mapper>

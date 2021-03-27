@@ -1,0 +1,28 @@
+.layui-table, .layui-table-view {
+    margin: 3px 0;
+}
+
+.toolbarFloat {
+    float: left;
+}
+
+.toolbarFont {
+    font-size: 12px !important;
+}
+
+#blogSearch {
+    height: 31px;
+    width: 200px;
+    float: left;
+    margin: 0 12px;
+}
+
+#blogForm {
+    max-width: 1200px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.halfWidth {
+    width: 50%;
+}

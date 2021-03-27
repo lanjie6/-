@@ -1,0 +1,92 @@
+.layui-tab-content {
+    padding: 0;
+}
+
+.layui-layout-admin .layui-body {
+    bottom: 0;
+}
+
+.layui-body {
+    overflow: hidden;
+}
+
+.layui-logo img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.layui-logo span {
+    font-size: 20px;
+}
+
+.welcome {
+    margin-right: 30px;
+}
+
+.tool {
+    font-size: 15px;
+    color: #1E9FFF;
+}
+
+.mainPage {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: -6px;
+}
+
+.home {
+    font-size: 15px;
+    color: #1E9FFF;
+    font-weight: bolder
+}
+
+.welcomeUse {
+    text-align: center;
+    margin-top: 20%;
+    font-size: 28px;
+}
+
+#passwordFrom {
+    width: 450px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.layuiadmin-badge, .layuiadmin-btn-group {
+    position: absolute;
+    right: 15px;
+    top:10px;
+}
+
+.layui-fluid-badge {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F2F2F2;
+}
+
+.layuiadmin-card-list p.layuiadmin-big-font {
+    font-size: 36px;
+    line-height: 64px;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+    padding: 5px 0px 10px;
+    overflow: hidden;
+}
+
+.layuiadmin-span-color {
+    position: absolute;
+    right: 15px;
+}
+
+.layuiadmin-card-list {
+    padding: 15px;
+}
+
+.layuiadmin-card-list p.layuiadmin-normal-font {
+    padding-bottom: 10px;
+    font-size: 20px;
+    line-height: 24px;
+}

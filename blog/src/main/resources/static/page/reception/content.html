@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>博客内容</title>
+    <link rel="stylesheet" href="../../bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../css/reception/index.css">
+</head>
+<body>
+<!-- 布局容器开始 -->
+<div class="container">
+    <!-- 博客LOGO和天气预报开始 -->
+    <div class="row">
+        <div class="col-md-4">
+            <img alt="博客采集系统" src="../../images/logo.png">
+        </div>
+        <div class="col-md-8">
+            <iframe id="weather" scrolling="no" frameborder="0" allowtransparency="true"
+                    src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=5&site=12"></iframe>
+        </div>
+    </div>
+    <!-- 博客LOGO和天气预报结束 -->
+
+    <!-- 导航条开始 -->
+    <div class="row" id="navigation">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">首页</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <form class="navbar-form navbar-right" action="/index/search" method="get" onsubmit="return checkContent()">
+                            <div class="form-group">
+                                <input type="text" id="q" name="q" value="" class="form-control"
+                                       placeholder="请输入要搜索的关键字...">
+                            </div>
+                            <button type="submit" class="btn btn-default">搜索</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- 导航条结束 -->
+
+    <!-- 内容布局开始 -->
+    <div class="row">
+        <!-- 主内容区开始 -->
+        <div class="col-md-9" id="importContainer">
+            <div class="data_list">
+                <div class="data_list_title">
+                    <img src="../../images/blog_show_icon.png">&nbsp;博客信息
+                </div>
+                <div class="datas">
+                    <!-- 博客标题开始 -->
+                    <div class="blog_title" id="blog_title">
+
+                    </div>
+                    <!-- 博客标题结束 -->
+                    <!-- 博客分享开始 -->
+                    <div class="blog_share">
+                        <div class="bdsharebuttonbox">
+                            <a href="#" class="bds_more" data-cmd="more"></a>
+                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+                        </div>
+                    </div>
+                    <!-- 博客分享结束 -->
+                    <!-- 博客信息开始 -->
+                    <div class="blog_info" id="blog_info">
+
+                    </div>
+                    <!-- 博客信息结束 -->
+                    <!-- 博客正文开始 -->
+                    <div class="blog_content" id="blog_content">
+
+                    </div>
+                    <!-- 博客正文结束 -->
+                    <!-- 关键词开始 -->
+                    <div class="blog_keyword">
+                        <span id="blog_keyword">
+                            <b>关键字：</b>
+                        </span>
+                    </div>
+                    <!-- 关键词结束 -->
+                    <!-- 做一个锚点 -->
+                    <a name="publish_a"></a>
+                    <!-- 上一篇和下一篇开始 -->
+                    <div class="blog_lastAndNextPage" id="blog_lastAndNextPage">
+
+                    </div>
+                    <!-- 上一篇和下一篇结束 -->
+                </div>
+            </div>
+        </div>
+        <!-- 主内容区结束 -->
+
+        <!-- 侧边栏信息开始 -->
+        <div class="col-md-3">
+            <div class="data_list">
+                <div class="data_list_title">
+                    <img src="../../images/byType_icon.png"/>&nbsp;文章类别
+                </div>
+                <div class="datas">
+                    <ul id="blog_type">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="data_list">
+                <div class="data_list_title">
+                    <img src="../../images/byType_icon.png"/>&nbsp;热门文章
+                </div>
+                <div class="datas">
+                    <ul id="hot_blog">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="data_list">
+                <div class="data_list_title">
+                    <img src="../../images/link_icon.png"/>&nbsp;友情链接
+                </div>
+                <div class="datas">
+                    <ul id="friendship_link">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 侧边栏信息结束 -->
+    </div>
+    <!-- 内容布局结束-->
+</div>
+<!-- 布局容器结束 -->
+
+<script type="text/javascript" src="../../bootstrap3/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../../bootstrap3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/reception/share.js"></script>
+<script type="text/javascript" src="../../js/reception/index.js"></script>
+<script>
+    $(function () {
+        loadBlogContent();
+        loadBlogType();
+        loadHotBlog();
+        loadLink();
+    });
+</script>
+</body>
+</html>

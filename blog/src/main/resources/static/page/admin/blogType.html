@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客类别管理</title>
+    <link rel="stylesheet" href="../../layui-v2.5.5/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/admin/blogType.css">
+</head>
+<body>
+<table class="layui-hide" id="blogTypeTable" lay-filter="blogTypeTable"></table>
+
+<script type="text/html" id="toolbarHead">
+    <button class="layui-btn layui-btn-sm toolbarFloat" lay-event="insertData">
+        <i class="layui-icon layui-icon-add-1 toolbarFont"></i>新增
+    </button>
+    <button class="layui-btn layui-btn-sm layui-btn-normal toolbarFloat" lay-event="refreshData">
+        <i class="layui-icon layui-icon-refresh toolbarFont"></i>刷新
+    </button>
+    <input type="text" id="blogTypeSearch" placeholder="根据博客类别名搜索" class="layui-input">
+    <button class="layui-btn layui-btn-sm layui-btn-normal toolbarFloat" lay-event="searchData">
+        <i class="layui-icon layui-icon-search toolbarFont"></i>搜索
+    </button>
+</script>
+
+<script type="text/html" id="toolbar">
+    <a class="layui-btn layui-btn-sm" lay-event="edit">
+        <i class="layui-icon layui-icon-edit toolbarFont"></i>编辑
+    </a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">
+        <i class="layui-icon layui-icon-close toolbarFont"></i>删除
+    </a>
+</script>
+
+<!-- 新增链接弹出表单，默认隐藏 -->
+<form class="layui-form layui-hide" id="blogTypeForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">博客类别名</label>
+        <div class="layui-input-block">
+            <input type="text" id="typeName" name="typeName" lay-verify="required"
+                   lay-reqtext="博客类别名不能为空" autocomplete="off" placeholder="请输入博客类别名" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-inline">
+            <input type="text" id="orderNo" name="orderNo" lay-verify="number"
+                   placeholder="请输入排序" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">默认从小到大排序</div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn layui-btn-normal" lay-submit="" lay-filter="submitUpdate">提交
+            </button>
+            <button type="button" id="cancel" class="layui-btn layui-btn-primary">取消</button>
+        </div>
+    </div>
+</form>
+
+
+<script src="../../layui-v2.5.5/layui/layui.js"></script>
+<script src="../../js/admin/blogType.js"></script>
+</body>
+</html>

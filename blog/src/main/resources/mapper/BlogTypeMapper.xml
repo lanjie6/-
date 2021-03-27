@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bonc.blog.dao.BlogTypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.bonc.blog.entity.BlogType">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="type_name" jdbcType="VARCHAR" property="typeName"/>
+        <result column="order_no" jdbcType="INTEGER" property="orderNo"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, type_name, order_no
+  </sql>
+
+    <select id="listBlogType" parameterType="map" resultMap="BaseResultMap">
+        select
+          <include refid="Base_Column_List"></include>
+        from
+          t_blog_type
+        <where>
+            <if test="typeName!=null and typeName!=''">
+                type_name like concat('%',#{typeName},'%')
+            </if>
+        </where>
+        order by id desc
+        limit #{begin},#{size}
+    </select>
+
+    <select id="listBlogTypeCount" resultType="integer">
+        select
+          count(*)
+        from
+          t_blog_type
+        <where>
+            <if test="typeName!=null and typeName!=''">
+                type_name like concat('%',#{typeName},'%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="com.bonc.blog.entity.BlogType">
+        insert into t_blog_type
+        (
+          type_name,
+          order_no
+        )
+        values (
+          #{typeName},
+          #{orderNo}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.bonc.blog.entity.BlogType">
+        update
+          t_blog_type
+        set
+          type_name = #{typeName},
+          order_no = #{orderNo}
+        where
+          id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from
+          t_blog_type
+        where
+          id = #{id}
+    </delete>
+
+    <select id="listAllBlogType" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"></include>
+        from
+        t_blog_type
+        order by order_no
+    </select>
+</mapper>

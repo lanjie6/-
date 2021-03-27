@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bonc.blog.dao.LinkMapper">
+
+    <resultMap id="BaseResultMap" type="com.bonc.blog.entity.Link">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="order_no" jdbcType="INTEGER" property="orderNo"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      id, name, url, order_no
+    </sql>
+
+    <select id="listLink" parameterType="map" resultMap="BaseResultMap">
+        select
+          <include refid="Base_Column_List"></include>
+        from
+          t_link
+        <where>
+            <if test="name!=null and name!=''">
+              name like concat('%',#{name},'%')
+            </if>
+        </where>
+        order by id desc
+        limit #{begin},#{size}
+    </select>
+
+    <select id="listLinkCount" resultType="integer">
+        select
+          count(*)
+        from
+         t_link
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="com.bonc.blog.entity.Link">
+        insert into t_link
+        (
+          name,
+          url,
+          order_no
+        )
+        values (
+          #{name},
+          #{url},
+          #{orderNo}
+        )
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from
+          t_link
+        where
+          id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.bonc.blog.entity.Link">
+        update
+          t_link
+        set
+          name = #{name},
+          url = #{url},
+          order_no = #{orderNo}
+        where
+          id = #{id}
+    </update>
+
+    <select id="listAllLink" resultMap="BaseResultMap">
+        select
+          <include refid="Base_Column_List"></include>
+        from
+          t_link
+        order by
+          order_no
+    </select>
+
+</mapper>

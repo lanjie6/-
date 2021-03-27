@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN" monitorInterval="30">
+<!--先定义所有的appender-->
+<appenders>
+    <!--这个输出控制台的配置-->
+    <console name="Console" target="SYSTEM_OUT">
+        <!--输出日志的格式-->
+        <!--<PatternLayout pattern="[console][%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>-->
+        <PatternLayout pattern="[%-5level] - %d{yyyy-MM-dd HH:mm:ss.SSS} - %msg%n"/>
+        <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+    </console>
+
+    <!--这个会打印日志到文件中-->
+    <RollingFile name="RollingFile" fileName="D:/logs/log.log" filePattern="D:/logs/%d{yyyy-MM-dd}_%i.log">
+        <PatternLayout pattern="[%-5level] - %d{yyyy-MM-dd HH:mm:ss.SSS} - %msg%n"/>
+        <DefaultRolloverStrategy max="3"/>
+        <SizeBasedTriggeringPolicy size="100MB"/>
+        <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+    </RollingFile>
+</appenders>
+<!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
+<loggers>
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="RollingFile"/>
+    </root>
+    <!-- 打印mybatis执行语句 -->
+    <logger name="com.bonc.blog.dao" level="DEBUG" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+</loggers>
+</configuration>
