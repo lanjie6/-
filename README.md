@@ -1,5 +1,7 @@
 #### 介绍
-blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系统，一个是爬虫系统，CMS系统采用SSM架构，Maven3管理，Shiro安全框架，restful风格，Lucene全文检索；爬虫系统采用HttpClient+Jsoup+quartz定时任务+Log4j日志框架实现+Ehcache缓存框架判断重复URL
+ **blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系统，一个是爬虫系统。**   
+ **CMS系统采用 SpringBoot+Mybatis+Maven3+Shiro+Restful+Lucene+Bootstrap+Layui等技术栈**  
+ **爬虫系统采用 HttpClient+Jsoup+Quartz+Log4j+Ehcache等技术栈** 
 
 #### 注意事项
 本项目作为教学使用，请勿商用
