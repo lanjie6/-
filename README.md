@@ -25,7 +25,7 @@ blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系�
     2.2. 找到数据库sql文件脚本，如下图所示   
 ![avatar](https://images.gitee.com/uploads/images/2021/0327/115707_2c01f150_5479060.png)  
   
-    2.3. 导入数据，如下图所示
+    2.3. 导入数据，Database->Import->Restore From SQL DUMP，如下图所示
 ![avatar](https://images.gitee.com/uploads/images/2021/0327/120026_ada3bdec_5479060.png)  
   
     2.4. 数据导入成功，如下图所示
