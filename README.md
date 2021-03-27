@@ -6,18 +6,27 @@ blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系�
 
 #### 使用说明
 1. 拉取项目:  
-   1.1. 打开idea，选择下图所示方式，从gitee中拉取项目  
+    1.1. 打开idea，选择下图所示方式，从gitee中拉取项目  
 ![avatar](https://images.gitee.com/uploads/images/2021/0327/105124_e75a6875_5479060.png)  
   
-   1.2. 按下图所示，输入项目gitee地址[https://gitee.com/gucaini/blog-crawler.git](http://)，输入自己本地磁盘的存放目录，例如：[D:\workspace\demo\blog-crawler](http://)，点击克隆按钮Clone  
+    1.2. 按下图所示，输入项目gitee地址[https://gitee.com/gucaini/blog-crawler.git](http://)，输入自己本地磁盘的存放目录，例如：[D:\workspace\demo\blog-crawler](http://)，点击克隆按钮Clone  
 ![avatar](https://images.gitee.com/uploads/images/2021/0327/110542_919b93b5_5479060.png)  
   
-   1.3. 更改自己的Maven仓库，File->Settings->Build,Execution,Deployment->Build tools->Maven，如下图所示
+    1.3. 更改自己的Maven仓库，File->Settings->Build,Execution,Deployment->Build tools->Maven，如下图所示
 ![avatar](https://images.gitee.com/uploads/images/2021/0327/112533_9f2ce17f_5479060.png)
   
-   1.4. 等待下载完毕所有依赖
+    1.4. 等待下载完毕所有依赖
 
                                       
 2.  创建数据库：  
-   2.1. 
-3.  xxxx
+    2.1. 创建数据库blog-crawler，如下图所示  
+![avatar](https://images.gitee.com/uploads/images/2021/0327/115524_d6adeefc_5479060.png)  
+  
+    2.2. 找到数据库sql文件脚本，如下图所示   
+![avatar](https://images.gitee.com/uploads/images/2021/0327/115707_2c01f150_5479060.png)  
+  
+    2.3. 导入数据，如下图所示
+![avatar](https://images.gitee.com/uploads/images/2021/0327/120026_ada3bdec_5479060.png)  
+  
+    2.4. 数据导入成功，如下图所示
+![avatar](https://images.gitee.com/uploads/images/2021/0327/120304_bbb3abd5_5479060.png)
