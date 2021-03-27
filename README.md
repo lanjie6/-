@@ -1,5 +1,5 @@
 #### 介绍
-blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系统，一个是爬虫系统，CMS系统采用SSM架构，Maven3管理，Shiro安全框架，restful风格；爬虫系统采用HttpClient+Jsoup+quartz定时任务+Log4j日志框架实现+Ehcache缓存框架判断重复URL
+blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系统，一个是爬虫系统，CMS系统采用SSM架构，Maven3管理，Shiro安全框架，restful风格，Lucene全文检索；爬虫系统采用HttpClient+Jsoup+quartz定时任务+Log4j日志框架实现+Ehcache缓存框架判断重复URL
 
 #### 注意事项
 本项目作为教学使用，请勿商用
@@ -29,4 +29,11 @@ blog-crawler博客采集系统，本系统分两个子系统，一个是CMS系�
 ![avatar](https://images.gitee.com/uploads/images/2021/0327/120026_ada3bdec_5479060.png)  
   
     2.4. 数据导入成功，如下图所示
-![avatar](https://images.gitee.com/uploads/images/2021/0327/120304_bbb3abd5_5479060.png)
+![avatar](https://images.gitee.com/uploads/images/2021/0327/120304_bbb3abd5_5479060.png)  
+  
+3.  修改项目配置文件：  
+    3.1. 修改blog项目配置文件，如下图所示，将图中第3步数据库连接地址改为自己的数据库连接地址，将图中第4步的lucene配置改为你本地的目录地址（自己创建一个lucene文件夹），将第5步中的项目图片保存地址改为你当前blog项目所在的目录地址
+![avatar](https://images.gitee.com/uploads/images/2021/0327/120944_83102b00_5479060.png)  
+  
+    3.2. 修改crawler项目配置文件，如下图所示，将图中第3步数据库连接地址改为自己的数据库连接地址，将第4步中的项目图片保存地址改为你当前blog项目所在的目录地址
+![avatar](https://images.gitee.com/uploads/images/2021/0327/121554_3d1df857_5479060.png) 
