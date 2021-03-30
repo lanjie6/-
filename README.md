@@ -46,7 +46,7 @@
     4.1. 博客系统前台展示，浏览器输入地址localhost:9090
 ![avatar](https://images.gitee.com/uploads/images/2021/0327/122247_00e68371_5479060.png)  
   
-    4.2. 博客系统后台展示，浏览器输入地址localhost:9090/login  登录账号：admin 登录密码：admin23
+    4.2. 博客系统后台展示，浏览器输入地址localhost:9090/login  登录账号：admin 登录密码：admin123
 ![avatar](https://images.gitee.com/uploads/images/2021/0327/122258_65c12f37_5479060.png)  
   
     4.3. 爬虫系统爬取数据展示  
